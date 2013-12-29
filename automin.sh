@@ -1,5 +1,7 @@
 #!/bin/sh
 
+./min.sh
+
 # get the current path
 CURPATH=`pwd`
 
@@ -11,7 +13,7 @@ inotifywait -mr --timefmt '%d/%m/%y %H:%M' --format '%T %w %f' \
        # convert absolute path to relative
        FILECHANGEREL=`echo "$FILECHANGE" | sed 's_'$CURPATH'/__'`
 
-       /home/max/apps/backgammon.js/min.sh
+       ./min.sh
        echo "At ${time} on ${date}, file $FILECHANGE triggered a minify"
        ./automin.sh
 done

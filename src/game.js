@@ -326,11 +326,10 @@
 		Game.prototype.canclear = function() {
 			var self = this;
 			if(self.onbar()) return false;
-			var begin = self.wtm?5:0;
+			var begin = self.wtm?6:0;
 			var end = self.wtm?24:18;
 			var pieces = self.wtm?self.pieces.white:self.pieces.black;
 			for(var point=begin;point<end;point++) if(pieces[point]>0) return false;
-			//TODO - find maximum point
 			if(self.wtm) {
 				for(var point=5;point>=0;point--) {if(pieces[point]>0) return point;}
 			} else {
@@ -435,26 +434,61 @@
 			//Can clear checkers from the board
 			var canclear = self.canclear();
 			if (canclear!==false) {
-				var clearfrom = self.wtm?0:canclear;
-				var clearto   = self.wtm?canclear:23;
-				for(var point = clearfrom;point<=clearto;point++) {
-					if (!roll.doubles) {
-						if (clearto-point<=roll.die1) {
-							var possible = new Move(die1,point,999,false);
-							moves.push(possible);
-						}
-						if (clearto-point<=roll.die2) {
-							var possible = new Move(die2,point,999,false);
-							moves.push(possible);
-						}
-					} else {
-						if (clearto-point<=roll.die1) {
-							for(var i=0;i<4;i++) {
-								var possible = new Move(die1,point,999,false);
-								moves.push(possible);
+				var greater = false;
+				var maxdie  = Math.max(roll.die1,roll.die2);
+				var mindie  = Math.min(roll.die1,roll.die2);
+				if(self.wtm) {
+					var diepoint;
+					var pieces  = self.pieces.white;
+					for(var point = canclear;point>=0;point--) {
+						diepoint  = point+1;
+						if (pieces[point]>0) {
+							if (!roll.doubles) {
+								if (diepoint === maxdie || (!greater && diepoint<maxdie)) {
+									var possible = new Move(maxdie,point,999,false);
+									moves.push(possible);
+								}
+								if (diepoint === mindie) {
+									var possible = new Move(mindie,point,999,false);
+									moves.push(possible);
+								}
+							} else {
+								if (diepoint===roll.die1 || (!greater && diepoint<maxdie)) {
+									for(var i=0;i<4;i++) {
+										var possible = new Move(roll.die1,point,999,false);
+										moves.push(possible);
+									}
+								}
 							}
+							greater = true;						
 						}
-					}					
+					}
+				} else {
+					var diepoint;
+					var pieces = self.pieces.black;
+					for(var point = canclear;point<=23;point++) {
+						diepoint  = 24-point;
+						if (pieces[point]>0) {
+							if (!roll.doubles) {
+								if (diepoint === maxdie || (!greater && diepoint<maxdie)) {
+									var possible = new Move(maxdie,point,999,false);
+									moves.push(possible);
+								}
+								if (diepoint === mindie) {
+									var possible = new Move(mindie,point,999,false);
+									moves.push(possible);
+								}
+							} else {
+								if (diepoint===roll.die1 || (!greater && diepoint<maxdie)) {
+									for(var i=0;i<4;i++) {
+										var possible = new Move(roll.die1,point,999,false);
+										moves.push(possible);
+									}
+								}
+							}
+							greater = true;						
+						}
+					}
 				}
 			}
 	

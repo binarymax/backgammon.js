@@ -200,7 +200,7 @@
 				for(point=18;point<24;point++) { html += '<td class="backgammon-notation">' + (24-point) + '</td>'; }
 				html += '<td class="backgammon-right"> </td></tr>';
 	
-				html += '</table></div>'
+				html += '</table></div>';
 	
 				//Create the board inside the container 			
 				self.container.html(html);
@@ -409,10 +409,11 @@
 })(backgammon);
 
 
-(function(){
+(function(backgammon){
+	"use strict";
 	
 	var getBoardWidth = function(total) {
-		var ratio = 1.2189;
+		var ratio = 1.2189; //Magic number - hardcoded w/h ratio of a backgammon board
 		var cols = 4;
 		while (total%cols>0) cols--;
 		var rows = total/cols;
@@ -422,9 +423,10 @@
 		var w = x;
 		var h = w/ratio;
 		while(w*cols>x) w--;
-		return w-10;
-	}	
-	
+		return w-20;
+	};
+
+	//Zero player game	
 	backgammon.new0PGame = function(id,total,delay,position) {
 		var width = getBoardWidth(total);
 		var whiteai = backgammon.brain({color:'white',level:0});
@@ -438,6 +440,7 @@
 	};
 
 
+	//One player game
 	backgammon.new1PGame = function(delay,position) {
 		var id = nextid();
 		var width=parseInt(window.innerWidth-10);

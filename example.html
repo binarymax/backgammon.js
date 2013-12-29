@@ -6,17 +6,17 @@
 
 	<meta name="description" content="Multiple backgammon games playing each other">
 	<meta name="author" content="Max Irwin">
-	<meta name="viewport" content="width=device-width">
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 
 	<link rel="stylesheet" href="backgammon.css" scalable="1222">
 
+	<style type="text/css">#footer, #footer > a {clear:left;font-family:sans-serif;font-weight:bold;padding-top:10px;}</style>
+
 </head>
 
 <body>
-
 <div id="boards"></div>
-
+<div id="footer">Powered by <a href="https://github.com/binarymax/backgammon.js">backgammon.js</a>.  MIT Licence, copyright 2013.  Made with love by <a href="http://binarymax.com">Max Irwin</a> (<a href="http://max.io">blog</a>).</div>
 <script type="text/javascript" src="jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="backgammon.min.js"></script>
 
@@ -25,11 +25,7 @@
 	backgammon.boards = backgammon.tournament(24,505);
 
 	//Google Analytics
-	var _gaq=[['_setAccount','UA-22107593-8'],['_trackPageview']];
-	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-	g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-	s.parentNode.insertBefore(g,s)}(document,'script'));
-
+	var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-22107593-1']); _gaq.push(['_trackPageview']); (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
 </script>
 
 </body>

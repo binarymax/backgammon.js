@@ -1,4 +1,4 @@
-# backgammon.js v0.1
+# backgammon.js v0.1 (alpha)
 Backgammon via JavaScript
 
 Backgammon.js consists of four modules:
