@@ -1,0 +1,118 @@
+.backgammon-board, 
+.backgammon-board * { -moz-box-sizing:border-box; -webkit-box-sizing:border-box; box-sizing:border-box; }
+.backgammon-board   {
+	padding:0px;
+	margin:0px;
+	border-width:20px;
+	border-style:solid;
+	border-color:#8B4800;
+	background-color:#8B4800; 
+}
+
+.backgammon-table {
+	background:url('felt.jpg'); /* Image Credit: Alte Mo  - http://subtlepatterns.com/felt/ */
+	border-spacing:2px;
+	border-width:20px;
+	border-style:solid;
+	border-top-color:#7B3800; 
+	border-left-color:#7B2800;
+	border-right-color:#906426; 
+	border-bottom-color:#905426;
+}
+
+.backgammon-notation {
+	text-align: center;
+	background-color:rgba(0,0,0,0.2);
+	color:#FFFF00;
+	font-size:14px;
+	padding:5px;
+	height:20px;
+	width:70px;
+}
+
+.backgammon-left,
+.backgammon-right,
+.backgammon-bar {
+	width:74px;
+	background-color:rgba(0,0,0,0.2);
+}
+
+.backgammon-point {
+	width:74px;
+	border-width: 30px;
+	border-style: solid;
+	border-color: transparent;
+}
+
+.backgammon-point-top {
+	border-top-width: 400px;
+}
+.backgammon-point-bottom {
+	border-bottom-width: 400px;
+}
+
+.backgammon-point-top.backgammon-point-even {
+	border-top-color: #8B4800;
+}
+
+.backgammon-point-top.backgammon-point-odd {
+	border-top-color:#906426;
+}
+
+.backgammon-point-bottom.backgammon-point-even {
+	border-bottom-color:#8B4800;
+}
+
+.backgammon-point-bottom.backgammon-point-odd {
+	border-bottom-color:#906426;
+}
+
+.backgammon-checker  {
+	position:absolute;
+	z-index:1;
+	margin-left:1.5px;
+	width:70px;
+	height:70px;
+	border-width:4px;
+	border-radius:35px;
+	border-style:solid;
+	left:585px;
+	top:480px;
+	cursor:pointer;
+}
+
+.backgammon-die {
+	margin-left:6px;
+	margin-bottom:10px;
+	width:60px;
+	height:60px;
+	border-width:4px;
+	border-radius:10px;
+	border-style:solid;
+	font-size:48px;
+	text-align: center;
+}
+
+.backgammon-white {
+	color:#111;
+	font-weight:bold;
+	background-color:#ffffff;
+	border-top-color: #dddddd;
+	border-left-color: #dddddd;
+	border-right-color: #cccccc;
+	border-bottom-color: #cccccc;
+}
+
+.backgammon-black {
+	color:#cccccc;
+	font-weight:bold;
+	background-color:#000000;
+	border-top-color: #444444;
+	border-left-color: #444444;
+	border-right-color: #333333;
+	border-bottom-color: #333333;
+}
+
+.backgammon-fade {
+	opacity: 0.505;
+}
