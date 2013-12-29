@@ -408,14 +408,25 @@
 
 })(backgammon);
 
+
 (function(){
 	
+	var getBoardWidth = function(total) {
+		var ratio = 1.2189;
+		var cols = 4;
+		while (total%cols>0) cols--;
+		var rows = total/cols;
+		var x = window.innerWidth;
+		var y = window.innerHeight;
+		while (x/y>ratio) x--;
+		var w = x;
+		var h = w/ratio;
+		while(w*cols>x) w--;
+		return w-10;
+	}	
+	
 	backgammon.new0PGame = function(id,total,delay,position) {
-		var width=parseInt(window.innerWidth*2/3);
-		if (total%5===0) width = width/4;
-		else if (total%4===0) width = width/3;
-		else if (total%3===0) width = width/2;
-		else if (total%2===0) width = width/1;
+		var width = getBoardWidth(total);
 		var whiteai = backgammon.brain({color:'white',level:0});
 		var blackai = backgammon.brain({color:'black',level:1});
 		var boardui = $("<div id='"+id+"' style='float:left;'><div>");
@@ -429,7 +440,7 @@
 
 	backgammon.new1PGame = function(delay,position) {
 		var id = nextid();
-		var width=parseInt(window.innerWidth*2/3);
+		var width=parseInt(window.innerWidth-10);
 		var blackai = backgammon.brain({color:'black',level:1});
 		var boardui = $("<div id='"+id+"' style='float:left;'><div>");
 		if (isNaN(delay)) delay = gammon.defaults.delay;

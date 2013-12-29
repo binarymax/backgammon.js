@@ -47,6 +47,7 @@
 .backgammon-point-top {
 	border-top-width: 400px;
 }
+
 .backgammon-point-bottom {
 	border-bottom-width: 400px;
 }
@@ -94,7 +95,7 @@
 }
 
 .backgammon-white {
-	color:#111;
+	color:#111111;
 	font-weight:bold;
 	background-color:#ffffff;
 	border-top-color: #dddddd;
