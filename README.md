@@ -34,8 +34,8 @@ When Initializing a game you can specify a starting position in a modified FEN f
 Outputs a board into a position
 Ported from https://en.wikipedia.org/wiki/Forsyth-Edwards_Notation
 The position conists of 5 tokens, separated by a single space.  The tokens are outlined as follows:
-1. Piece placement (from white's perspective). Each point is described, starting with 24 and ending with point 1; within each point, the number and color of checkers is described. (white = "W", black = "B". Empty points are denoted by "/".
-2. Active color. "W" means white moves next, "B" means black.
-3. Two digits in hexadecimal format (0 for none, F for 15). The first digit is the number of white checkers on the bar,  the second digit is the number of black checkers on the bar.
-4. Full move number: The number of the full move. It starts at 1, and is incremented after blacks move.
-5. Two digits numbered 0 through 6.  The first and second are the values rolled for two dice (1 to 6).  If a digit is zero, it denotes the die is yet to be rolled.
+ * 1. Piece placement (from white's perspective). Each point is described, starting with 24 and ending with point 1; within each point, the number and color of checkers is described. (white = "W", black = "B". Empty points are denoted by "/".
+ * 2. Active color. "W" means white moves next, "B" means black.
+ * 3. Two digits in hexadecimal format (0 for none, F for 15). The first digit is the number of white checkers on the bar,  the second digit is the number of black checkers on the bar.
+ * 4. Full move number: The number of the full move. It starts at 1, and is incremented after blacks move.
+ * 5. Two digits numbered 0 through 6.  The first and second are the values rolled for two dice (1 to 6).  If a digit is zero, it denotes the die is yet to be rolled.
